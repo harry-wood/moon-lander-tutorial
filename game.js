@@ -143,15 +143,15 @@ var spaceship =
     thrust: -0.1,
     position:
     {
-        x: 20,
-        y: 20
+        x: 50,
+        y: 50
     },
     velocity:
     {
-        x: 0,
-        y: 0
+        x: 0.2,
+        y: -1
     },
-    angle: Math.PI / 2,
+    angle: 0,
     engineOn: false,
     rotatingLeft: false,
     rotatingRight: false,
