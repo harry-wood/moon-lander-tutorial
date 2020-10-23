@@ -140,6 +140,7 @@ var spaceship =
     color: "white",
     width: 8,
     height: 22,
+    thrust: -0.1,
     position:
     {
         x: 20,
