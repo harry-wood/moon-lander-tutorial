@@ -30,11 +30,11 @@ function updateSpaceship()
     spaceship.position.y += spaceship.velocity.y;
     if(spaceship.rotatingRight)
     {
-        spaceship.angle += Math.PI / 180;
+        spaceship.angle += Math.PI / 180 * 2;
     }
     else if(spaceship.rotatingLeft)
     {
-        spaceship.angle -= Math.PI / 180;
+        spaceship.angle -= Math.PI / 180 * 2;
     }
 
     if(spaceship.engineOn)
