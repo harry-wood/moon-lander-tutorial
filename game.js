@@ -33,8 +33,16 @@ function updateSpaceship() {
         spaceship.velocity.y += spaceship.thrust * Math.cos(spaceship.angle);
     }
     spaceship.velocity.y -= gravity;
+    bounceOffEdges();
 }
 
+function bounceOffEdges() {
+  if (spaceship.position.y > canvas.height - bounce_buffer) { spaceship.velocity.y = -spaceship.velocity.y * 0.9; spaceship.position.y = canvas.height - bounce_buffer; }
+  if (spaceship.position.y < bounce_buffer) { spaceship.velocity.y = -spaceship.velocity.y * 0.9; spaceship.position.y = bounce_buffer; }
+  if (spaceship.position.x > canvas.width - bounce_buffer ) { spaceship.velocity.x = -spaceship.velocity.x * 0.9; spaceship.position.x = canvas.width - bounce_buffer; }
+  if (spaceship.position.x < bounce_buffer) { spaceship.velocity.x = -spaceship.velocity.x * 0.9; spaceship.position.x = bounce_buffer; }
+}
+    
 function drawStars() {
   context.save();
   context.fillStyle = "#111"
@@ -95,6 +103,7 @@ var spaceship = {
 }
 var gravity;
 var stars = [];
+var bounce_buffer;
 
 for (var i = 0; i < 500; i++) {
   stars[i] = {
@@ -142,4 +151,5 @@ function resizeGame() {
   spaceship.height = spaceship.width * 2;
   spaceship.thrust = canvas.width * -0.00005;
   gravity = -0.00001 * canvas.width;
+  bounce_buffer = canvas.width * 0.02;
 }
